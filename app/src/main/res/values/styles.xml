@@ -3,13 +3,13 @@
     <!-- Base application theme. -->
     <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
         <!-- Customize your theme here. -->
-        <item name="colorPrimary">@color/colorPrimary</item>
-        <item name="colorPrimaryDark">@color/colorDarkGray</item>
-        <item name="colorAccent">@color/colorAccent</item>
+        <item name="colorPrimary">@color/color_primary</item>
+        <item name="colorPrimaryDark">@color/color_dark_gray</item>
+        <item name="colorAccent">@color/color_accent</item>
     </style>
 
-    <style name="ButtonSignInGuest" parent="Widget.AppCompat.Button.Colored">
-        <item name="android:background">@color/colorDarkGray</item>
+    <style name="ButtonDarkGray" parent="Widget.AppCompat.Button.Colored">
+        <item name="android:background">@color/color_dark_gray</item>
         <item name="android:textColor">@android:color/white</item>
     </style>
 

@@ -1,6 +1,18 @@
 <resources>
     <string name="app_name">GotoSalonn</string>
-    <string name="login_as_guest">Use as guest</string>
+    <string name="button_login_as_guest">Use as guest</string>
     <string name="tittle_background">background</string>
-    <string name="login_to_ad"><u>Login to advertise your salon </u></string>
+    <string name="button_login_to_ad"><u>Login to advertise your salon </u></string>
+    <string name="hint_user_name">User name</string>
+    <string name="hint_password">Password</string>
+    <string name="hint_repassword">Repassword</string>
+    <string name="hint_email">Email</string>
+    <string name="button_sign_up">Sign Up Free</string>
+    <string name="button_sign_in">Sign In</string>
+    <string name="hint_search">Search</string>
+    <string name="check_box_remember">Remember account?</string>
+    <string name="button_dont_have">Don\'t have account? Sign up here</string>
+    <string name="title_hot">Hot Salon</string>
+    <string name="title_new">New Salon</string>
+    <string name="viewport_24">24.0</string>
 </resources>

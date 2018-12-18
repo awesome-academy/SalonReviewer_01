@@ -22,4 +22,6 @@
     <string name="error_email_form">Invalid email form</string>
     <string name="msg_welcome">Welcome </string>
     <string name="tittle_empty"></string>
+    <string name="tittle_sign_in">Signing in</string>
+    <string name="tittle_sign_up">Signing up</string>
 </resources>

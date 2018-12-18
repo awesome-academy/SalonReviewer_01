@@ -10,6 +10,7 @@ import com.framgia.gotosalon.data.repository.AuthenicationRepository;
 import com.framgia.gotosalon.data.source.remote.AuthenicationRemoteDataSoucre;
 import com.framgia.gotosalon.screen.base.BaseActivity;
 import com.framgia.gotosalon.screen.home.HomeActivity;
+import com.framgia.gotosalon.screen.signup.SignUpActivity;
 import com.google.firebase.auth.FirebaseAuth;
 
 public class LoginActivity extends BaseActivity implements View.OnClickListener, LoginContract.View {
@@ -27,6 +28,8 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener,
         mEditTextEmail = findViewById(R.id.edit_email);
         mEditTextPassword = findViewById(R.id.edit_password);
         findViewById(R.id.button_sign_in).setOnClickListener(this);
+        findViewById(R.id.image_back).setOnClickListener(this);
+        findViewById(R.id.text_sign_up).setOnClickListener(this);
     }
 
     @Override
@@ -43,6 +46,12 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener,
             case R.id.button_sign_in:
                 Account account = new Account(mEditTextEmail.getText().toString(), mEditTextPassword.getText().toString());
                 mPresenter.signIn(account);
+                break;
+            case R.id.text_sign_up:
+                navigateScreen(this, SignUpActivity.class);
+                break;
+            case R.id.image_back:
+                finish();
                 break;
         }
     }

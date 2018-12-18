@@ -1,7 +1,6 @@
 package com.framgia.gotosalon.screen.login;
 
 import android.support.annotation.NonNull;
-import android.util.Log;
 import android.util.Patterns;
 
 import com.framgia.gotosalon.data.model.Account;

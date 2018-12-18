@@ -1,4 +1,4 @@
-package com.framgia.gotosalon.screen.contain;
+package com.framgia.gotosalon.screen.home;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;

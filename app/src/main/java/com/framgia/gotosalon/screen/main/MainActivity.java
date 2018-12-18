@@ -4,7 +4,7 @@ import android.view.View;
 
 import com.framgia.gotosalon.R;
 import com.framgia.gotosalon.screen.base.BaseActivity;
-import com.framgia.gotosalon.screen.contain.HomeActivity;
+import com.framgia.gotosalon.screen.home.HomeActivity;
 import com.framgia.gotosalon.screen.login.LoginActivity;
 
 public class MainActivity extends BaseActivity implements View.OnClickListener {

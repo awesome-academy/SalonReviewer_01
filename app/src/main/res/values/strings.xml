@@ -15,4 +15,11 @@
     <string name="title_hot">Hot Salon</string>
     <string name="title_new">New Salon</string>
     <string name="viewport_24">24.0</string>
+    <string name="error_email">Wrong email or user no exsist</string>
+    <string name="error_empty_field_email">Fill in field email please</string>
+    <string name="error_empty_field_password">Fill in field password please</string>
+    <string name="error_password">Invalid password</string>
+    <string name="error_email_form">Invalid email form</string>
+    <string name="msg_welcome">Welcome </string>
+    <string name="tittle_empty"></string>
 </resources>

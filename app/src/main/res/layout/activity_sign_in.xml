@@ -29,14 +29,14 @@
         app:srcCompat="@drawable/logo" />
 
     <EditText
-        android:id="@+id/edit_user_name"
+        android:id="@+id/edit_email"
         android:layout_width="@dimen/dimen_0"
         android:layout_height="@dimen/heigh_edit_text"
         android:layout_marginStart="@dimen/dimen_20"
         android:layout_marginTop="@dimen/dimen_45"
         android:layout_marginEnd="@dimen/dimen_20"
         android:ems="10"
-        android:hint="@string/hint_user_name"
+        android:hint="@string/hint_email"
         android:inputType="textPersonName"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -54,7 +54,7 @@
         android:inputType="textPassword"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/edit_user_name" />
+        app:layout_constraintTop_toBottomOf="@+id/edit_email" />
 
     <Button
         android:id="@+id/button_sign_in"

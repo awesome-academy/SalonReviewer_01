@@ -5,19 +5,34 @@
     android:layout_height="match_parent">
 
     <EditText
-        android:id="@+id/edit_repassword"
+        android:id="@+id/edit_email"
+        android:layout_width="@dimen/dimen_0"
+        android:layout_height="@dimen/heigh_edit_text"
+        android:layout_marginStart="@dimen/dimen_30"
+        android:layout_marginTop="@dimen/dimen_50"
+        android:layout_marginEnd="@dimen/dimen_30"
+        android:ems="10"
+        android:hint="@string/hint_email"
+        android:inputType="textEmailAddress"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/image_backgound" />
+
+    <EditText
+        android:id="@+id/edit_user_name"
         android:layout_width="@dimen/dimen_0"
         android:layout_height="@dimen/heigh_edit_text"
         android:layout_marginStart="@dimen/dimen_30"
         android:layout_marginTop="@dimen/dimen_30"
         android:layout_marginEnd="@dimen/dimen_30"
         android:ems="10"
-        android:hint="@string/hint_repassword"
-        android:inputType="textPassword"
+        android:hint="@string/hint_user_name"
+        android:inputType="textPersonName"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/edit_password" />
+        app:layout_constraintTop_toBottomOf="@+id/edit_email" />
 
     <EditText
         android:id="@+id/edit_password"
@@ -35,19 +50,19 @@
         app:layout_constraintTop_toBottomOf="@+id/edit_user_name" />
 
     <EditText
-        android:id="@+id/edit_user_name"
+        android:id="@+id/edit_repassword"
         android:layout_width="@dimen/dimen_0"
         android:layout_height="@dimen/heigh_edit_text"
         android:layout_marginStart="@dimen/dimen_30"
         android:layout_marginTop="@dimen/dimen_30"
         android:layout_marginEnd="@dimen/dimen_30"
         android:ems="10"
-        android:hint="@string/hint_user_name"
-        android:inputType="textPersonName"
+        android:hint="@string/hint_repassword"
+        android:inputType="textPassword"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/edit_email" />
+        app:layout_constraintTop_toBottomOf="@+id/edit_password" />
 
     <ImageView
         android:id="@+id/image_backgound"
@@ -63,21 +78,6 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.0"
         app:srcCompat="@drawable/background_sign_up" />
-
-    <EditText
-        android:id="@+id/edit_email"
-        android:layout_width="@dimen/dimen_0"
-        android:layout_height="@dimen/heigh_edit_text"
-        android:layout_marginStart="@dimen/dimen_30"
-        android:layout_marginTop="@dimen/dimen_50"
-        android:layout_marginEnd="@dimen/dimen_30"
-        android:ems="10"
-        android:hint="@string/hint_email"
-        android:inputType="textEmailAddress"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/image_backgound" />
 
     <Button
         android:id="@+id/button_sign_up"
@@ -105,4 +105,5 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
 </android.support.constraint.ConstraintLayout>

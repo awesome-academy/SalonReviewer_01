@@ -11,7 +11,7 @@ public class AuthenicationRepository implements AuthenicationDataSource.Remote,
     private AuthenicationDataSource.Local mLocal;
     private static AuthenicationRepository sInstance;
 
-    public AuthenicationRepository(AuthenicationDataSource.Remote remote,
+    private AuthenicationRepository(AuthenicationDataSource.Remote remote,
                                    AuthenicationDataSource.Local local) {
         mRemote = remote;
         mLocal = local;
@@ -30,7 +30,6 @@ public class AuthenicationRepository implements AuthenicationDataSource.Remote,
                               OnFailureListener failureListener) {
         mRemote.signInAccount(email, password, completeListener, failureListener);
     }
-
 
     @Override
     public void saveAccount(Account account) {

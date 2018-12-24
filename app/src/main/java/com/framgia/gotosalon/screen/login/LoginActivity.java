@@ -112,10 +112,7 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener,
 
     @Override
     public void showProgressDialog() {
-        mDialog.setCancelable(false);
-        mDialog.setTitle(R.string.tittle_sign_in);
-        mDialog.setMessage(MSG_PLEASE_WAIT);
-        mDialog.show();
+        showProgressDialog(mDialog, R.string.tittle_sign_in);
     }
 
     @Override

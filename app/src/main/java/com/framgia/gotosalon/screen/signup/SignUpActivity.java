@@ -49,8 +49,7 @@ public class SignUpActivity extends BaseActivity implements SignUpContract.View,
     @Override
     protected void initData() {
         mPresenter = new SignUpPresenter(AuthenicationRepository
-                .getInstance(AuthenicationRemoteDataSoucre
-                                .getInstance(FirebaseAuth.getInstance())
+                .getInstance(AuthenicationRemoteDataSoucre.getInstance(FirebaseAuth.getInstance())
                         , null));
         mPresenter.setView(this);
         mAccount = new Account();
@@ -109,10 +108,7 @@ public class SignUpActivity extends BaseActivity implements SignUpContract.View,
 
     @Override
     public void showProgressDialog() {
-        mDialog.setCancelable(false);
-        mDialog.setTitle(R.string.tittle_sign_up);
-        mDialog.setMessage(MSG_PLEASE_WAIT);
-        mDialog.show();
+        showProgressDialog(mDialog, R.string.tittle_sign_up);
     }
 
     @Override
@@ -128,7 +124,7 @@ public class SignUpActivity extends BaseActivity implements SignUpContract.View,
                 mAccount.setPassword(mEditTextPassword.getText().toString());
                 mAccount.setRePassword(mEditTextRePassword.getText().toString());
                 mAccount.setUsername(mEditTextUsername.getText().toString());
-                mPresenter.validateSignUp(mAccount);
+                mPresenter.signUp(mAccount);
                 break;
         }
     }

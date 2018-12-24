@@ -12,7 +12,7 @@ public class AuthenicationRepository implements AuthenicationDataSource.Remote,
     private static AuthenicationRepository sInstance;
 
     private AuthenicationRepository(AuthenicationDataSource.Remote remote,
-                                   AuthenicationDataSource.Local local) {
+                                    AuthenicationDataSource.Local local) {
         mRemote = remote;
         mLocal = local;
     }
@@ -29,6 +29,12 @@ public class AuthenicationRepository implements AuthenicationDataSource.Remote,
     public void signInAccount(String email, String password, OnCompleteListener completeListener,
                               OnFailureListener failureListener) {
         mRemote.signInAccount(email, password, completeListener, failureListener);
+    }
+
+    @Override
+    public void signUpAccount(String email, String password, OnCompleteListener completeListener,
+                              OnFailureListener failureListener) {
+        mRemote.signUpAccount(email, password, completeListener, failureListener);
     }
 
     @Override

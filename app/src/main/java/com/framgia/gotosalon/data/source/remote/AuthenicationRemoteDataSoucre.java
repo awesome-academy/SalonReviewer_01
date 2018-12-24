@@ -27,4 +27,12 @@ public class AuthenicationRemoteDataSoucre implements AuthenicationDataSource.Re
                 .addOnCompleteListener(completeListener)
                 .addOnFailureListener(failureListener);
     }
+
+    @Override
+    public void signUpAccount(String email, String password, OnCompleteListener completeListener,
+                              OnFailureListener failureListener) {
+        mAuth.createUserWithEmailAndPassword(email, password)
+                .addOnCompleteListener(completeListener)
+                .addOnFailureListener(failureListener);
+    }
 }

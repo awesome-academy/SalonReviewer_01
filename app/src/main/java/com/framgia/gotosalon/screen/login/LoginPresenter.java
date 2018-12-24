@@ -12,7 +12,6 @@ import com.google.firebase.auth.FirebaseAuthInvalidCredentialsException;
 import com.google.firebase.auth.FirebaseAuthInvalidUserException;
 
 public class LoginPresenter implements LoginContract.Presenter {
-
     private AuthenicationRepository mRepository;
     private LoginContract.View mView;
 
@@ -30,12 +29,14 @@ public class LoginPresenter implements LoginContract.Presenter {
         if (!isValidAccount(account)) {
             return;
         }
+        mView.showProgressDialog();
         mRepository.signInAccount(account.getEmail(), account.getPassword(),
                 new OnCompleteListener() {
                     @Override
                     public void onComplete(@NonNull Task task) {
                         if (task.isSuccessful()) {
                             mView.onSignInSuccess();
+                            mView.hideProgressDialog();
                         }
                     }
                 }, new OnFailureListener() {
@@ -43,8 +44,10 @@ public class LoginPresenter implements LoginContract.Presenter {
                     public void onFailure(@NonNull Exception e) {
                         if (e instanceof FirebaseAuthInvalidUserException) {
                             mView.onInvalidEmail();
+                            mView.hideProgressDialog();
                         } else if (e instanceof FirebaseAuthInvalidCredentialsException) {
                             mView.onInvalidPassword();
+                            mView.hideProgressDialog();
                         }
                     }
                 });
@@ -65,5 +68,18 @@ public class LoginPresenter implements LoginContract.Presenter {
             return false;
         }
         return true;
+    }
+
+    @Override
+    public void saveAccount(Account account) {
+        mRepository.saveAccount(account);
+    }
+
+    @Override
+    public void restoreAccount(Account account) {
+        mRepository.restoreAccount(account);
+        if (account.isRemember()){
+            mView.onRestoringAccount(account);
+        }
     }
 }

@@ -1,5 +1,7 @@
 package com.framgia.gotosalon.screen.login;
 
+import android.app.ProgressDialog;
+
 import com.framgia.gotosalon.data.model.Account;
 
 public interface LoginContract {
@@ -15,6 +17,12 @@ public interface LoginContract {
         void onInvalidPassword();
 
         void onInvalidEmailForm();
+
+        void onRestoringAccount(Account account);
+
+        void showProgressDialog();
+
+        void hideProgressDialog();
     }
 
     interface Presenter<View> {
@@ -23,5 +31,9 @@ public interface LoginContract {
         void signIn(Account account);
 
         boolean isValidAccount(Account account);
+
+        void saveAccount(Account account);
+
+        void restoreAccount(Account account);
     }
 }

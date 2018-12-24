@@ -3,6 +3,7 @@ package com.framgia.gotosalon.data.model;
 public class Account {
     private String mEmail;
     private String mPassword;
+    private boolean mRemember;
 
     public Account() {
 
@@ -12,6 +13,12 @@ public class Account {
 
         mEmail = email;
         mPassword = password;
+    }
+
+    public Account(String email, String password, boolean remember) {
+        mEmail = email;
+        mPassword = password;
+        mRemember = remember;
     }
 
     public String getEmail() {
@@ -28,5 +35,13 @@ public class Account {
 
     public void setPassword(String password) {
         mPassword = password;
+    }
+
+    public boolean isRemember() {
+        return mRemember;
+    }
+
+    public void setRemember(boolean remember) {
+        mRemember = remember;
     }
 }

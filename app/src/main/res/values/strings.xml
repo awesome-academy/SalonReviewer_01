@@ -28,7 +28,11 @@
     <string name="error_when_sign_up">Error when sign up</string>
     <string name="msg_welcome">Welcome </string>
     <string name="msg_sign_up_success">Sign up succeed</string>
-    <string name="tittle_empty"></string>
-    <string name="tittle_sign_in">Signing in</string>
-    <string name="tittle_sign_up">Signing up</string>
+    <string name="title_sign_in">Signing in</string>
+    <string name="title_sign_up">Signing up</string>
+    <string name="title_salon_name">Salon name</string>
+    <string name="title_view_number">View number</string>
+    <string name="title_salon_address">Salon_address</string>
+    <string name="title_hot_fragment">Hot</string>
+    <string name="title_new_fragment">New</string>
 </resources>

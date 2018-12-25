@@ -32,6 +32,8 @@ public interface SignUpContract {
     interface Presenter<View> {
         void setView(SignUpContract.View view);
 
+        void signUp(Account account);
+
         boolean validateSignUp(Account account);
     }
 }

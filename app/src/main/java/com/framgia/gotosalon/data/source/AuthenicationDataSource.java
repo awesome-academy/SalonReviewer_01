@@ -9,6 +9,9 @@ public interface AuthenicationDataSource {
     interface Remote {
         void signInAccount(String email, String password, OnCompleteListener completeListener,
                            OnFailureListener failureListener);
+
+        void signUpAccount(String email, String password, OnCompleteListener completeListener,
+                           OnFailureListener failureListener);
     }
 
     interface Local {

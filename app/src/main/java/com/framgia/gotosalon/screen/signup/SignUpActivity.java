@@ -108,7 +108,7 @@ public class SignUpActivity extends BaseActivity implements SignUpContract.View,
 
     @Override
     public void showProgressDialog() {
-        showProgressDialog(mDialog, R.string.tittle_sign_up);
+        showProgressDialog(mDialog, R.string.title_sign_up);
     }
 
     @Override

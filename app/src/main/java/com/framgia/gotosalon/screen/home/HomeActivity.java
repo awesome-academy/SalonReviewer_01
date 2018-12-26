@@ -1,9 +1,7 @@
 package com.framgia.gotosalon.screen.home;
 
-import android.os.Bundle;
 import android.support.design.widget.TabLayout;
 import android.support.v4.view.ViewPager;
-import android.support.v7.app.AppCompatActivity;
 
 import com.framgia.gotosalon.R;
 import com.framgia.gotosalon.screen.base.BaseActivity;

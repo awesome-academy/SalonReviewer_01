@@ -1,6 +1,9 @@
 package com.framgia.gotosalon.screen.home;
 
 import android.app.ProgressDialog;
+import android.content.Context;
+import android.content.Intent;
+import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
@@ -11,15 +14,19 @@ import com.framgia.gotosalon.data.repository.SalonRepository;
 import com.framgia.gotosalon.data.source.remote.SalonRemoteDataSource;
 import com.framgia.gotosalon.screen.adapter.SalonAdapter;
 import com.framgia.gotosalon.screen.base.BaseFragment;
+import com.framgia.gotosalon.screen.detail.DetailSalonActivity;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
 public class NewFragment extends BaseFragment implements HomeContract.View {
+    private static final String EXTRA_SALON = "EXTRA_SALON";
     private SalonAdapter mAdapter;
     private ProgressDialog mDialog;
+    private List<Salon> mSalons;
 
     @Override
     protected int getLayoutResource() {
@@ -28,12 +35,18 @@ public class NewFragment extends BaseFragment implements HomeContract.View {
 
     @Override
     protected void initComponent(View view) {
-        List<Salon> mSalons = new ArrayList<>();
+        mSalons = new ArrayList<>();
         RecyclerView recyclerView = view.findViewById(R.id.recycler_view);
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
         mAdapter = new SalonAdapter(getContext(), mSalons);
         recyclerView.setAdapter(mAdapter);
         mDialog = new ProgressDialog(getContext());
+        mAdapter.setOnClickListener(new SalonAdapter.OnItemClickListener() {
+            @Override
+            public void onItemClick(View itemView, int position) {
+                getSalonIntent(getContext(), mSalons.get(position));
+            }
+        });
     }
 
     @Override
@@ -60,5 +73,12 @@ public class NewFragment extends BaseFragment implements HomeContract.View {
     @Override
     public void onGetSalonInProgress() {
         showProgressDialog(mDialog);
+    }
+
+    public static Intent getSalonIntent(Context context, Salon salon) {
+        Intent intent = new Intent(context, DetailSalonActivity.class);
+        intent.putExtra(EXTRA_SALON, (Serializable) salon);
+        context.startActivity(intent);
+        return intent;
     }
 }

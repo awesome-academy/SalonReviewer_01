@@ -1,6 +1,8 @@
 package com.framgia.gotosalon.data.model;
 
-public class Salon {
+import java.io.Serializable;
+
+public class Salon implements Serializable {
     private String mSalonName;
     private String mOwnerKey;
     private String mSalonAddress;

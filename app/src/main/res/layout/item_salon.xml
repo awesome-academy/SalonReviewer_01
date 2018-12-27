@@ -3,6 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    android:layout_margin="@dimen/dimen_10"
     app:cardBackgroundColor="@android:color/white"
     app:cardCornerRadius="@dimen/dimen_5"
     app:cardElevation="@dimen/dimen_5">
@@ -16,17 +17,17 @@
             android:id="@+id/text_salon_name"
             android:layout_width="@dimen/dimen_0"
             android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/dimen_20"
+            android:layout_marginTop="@dimen/dimen_10"
             android:text="@string/title_salon_name"
             android:textColor="@color/color_dark_blue"
             android:textSize="@dimen/text_22"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="1.0"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/imageView" />
+            app:layout_constraintTop_toBottomOf="@+id/image_salon" />
 
         <ImageView
-            android:id="@+id/imageView"
+            android:id="@+id/image_salon"
             android:layout_width="@dimen/dimen_0"
             android:layout_height="@dimen/dimen_200"
             android:scaleType="fitXY"
@@ -52,7 +53,7 @@
             android:id="@+id/text_salon_address"
             android:layout_width="@dimen/dimen_0"
             android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/dimen_10"
+            android:layout_marginTop="@dimen/dimen_5"
             android:text="@string/title_salon_address"
             android:textColor="@color/color_dark_blue"
             android:textSize="@dimen/text_18"

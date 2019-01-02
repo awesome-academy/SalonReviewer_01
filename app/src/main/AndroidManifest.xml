@@ -19,6 +19,7 @@
         <activity android:name=".screen.login.LoginActivity" />
         <activity android:name=".screen.home.HomeActivity" />
         <activity android:name=".screen.signup.SignUpActivity"/>
+        <activity android:name=".screen.detail.DetailSalonActivity"/>
     </application>
 
 </manifest>

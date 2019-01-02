@@ -31,11 +31,21 @@
     <string name="title_sign_in">Signing in</string>
     <string name="title_sign_up">Signing up</string>
     <string name="title_salon_name">Salon name</string>
-    <string name="title_view_number">View number</string>
     <string name="title_view">\t view</string>
     <string name="title_views">\t views</string>
     <string name="title_salon_address">Salon_address</string>
     <string name="title_hot_fragment">Hot</string>
     <string name="title_new_fragment">New</string>
     <string name="msg_please_wait">Please wait few second</string>
+    <string name="title_open">Open:</string>
+    <string name="tittle_close">Close:</string>
+    <string name="hint_description">Description</string>
+    <string name="hint_salon_name">Salon name</string>
+    <string name="hint_address">Salon address</string>
+    <string name="hint_phone">Phone number</string>
+    <string name="button_publish">Publish</string>
+    <string name="title_view_number">view number</string>
+    <string name="title_get_location"><u>Get location</u></string>
+    <string name="tittle_dial_phone"><u>Dial salon\'s phone number</u></string>
+    <string name="tittle_write_email"><u>Write email to salon</u></string>
 </resources>

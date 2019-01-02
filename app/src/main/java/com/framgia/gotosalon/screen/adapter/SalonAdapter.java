@@ -20,6 +20,7 @@ public class SalonAdapter extends RecyclerView.Adapter<SalonAdapter.ViewHolder> 
     private static final int START_ITEM = 0;
     private List<Salon> mSalons;
     private Context mContext;
+    private OnItemClickListener mListener;
 
     public SalonAdapter(Context context, List<Salon> salons) {
         mSalons = salons;
@@ -32,12 +33,16 @@ public class SalonAdapter extends RecyclerView.Adapter<SalonAdapter.ViewHolder> 
         notifyItemRangeChanged(START_ITEM, mSalons.size());
     }
 
+    public void setOnClickListener(OnItemClickListener listener) {
+        mListener = listener;
+    }
+
     @NonNull
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
         LayoutInflater inflater = LayoutInflater.from(viewGroup.getContext());
         View itemView = inflater.inflate(R.layout.item_salon, viewGroup, false);
-        return new ViewHolder(itemView);
+        return new ViewHolder(itemView, mListener);
     }
 
     @Override
@@ -45,7 +50,6 @@ public class SalonAdapter extends RecyclerView.Adapter<SalonAdapter.ViewHolder> 
         Salon salon = mSalons.get(i);
         viewHolder.bindData(mContext, salon);
     }
-
 
     @Override
     public int getItemCount() {
@@ -58,15 +62,28 @@ public class SalonAdapter extends RecyclerView.Adapter<SalonAdapter.ViewHolder> 
         private TextView mTextSalonView;
         private TextView mTextSalonAddress;
 
-        public ViewHolder(View view) {
+        public ViewHolder(final View view, final OnItemClickListener listener) {
             super(view);
             mImageSalon = view.findViewById(R.id.image_salon);
             mTextSalonNane = view.findViewById(R.id.text_salon_name);
             mTextSalonAddress = view.findViewById(R.id.text_salon_address);
             mTextSalonView = view.findViewById(R.id.text_view_number);
+
+            view.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    if (listener == null) {
+                        return;
+                    }
+                    int position = getAdapterPosition();
+                    if (position != RecyclerView.NO_POSITION) {
+                        listener.onItemClick(view, position);
+                    }
+                }
+            });
         }
 
-        private void bindData(Context context, Salon salon) {
+        private void bindData(final Context context, final Salon salon) {
             Glide.with(context).load(salon.getImageUrl()).into(mImageSalon);
             if (salon.getSalonView() > 1) {
                 mTextSalonView.setText(salon.getSalonView() +
@@ -78,5 +95,9 @@ public class SalonAdapter extends RecyclerView.Adapter<SalonAdapter.ViewHolder> 
             mTextSalonAddress.setText(salon.getSalonAddress());
             mTextSalonNane.setText(salon.getSalonName());
         }
+    }
+
+    public interface OnItemClickListener {
+        void onItemClick(View itemView, int position);
     }
 }

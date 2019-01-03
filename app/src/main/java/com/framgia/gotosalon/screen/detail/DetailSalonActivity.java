@@ -1,5 +1,6 @@
 package com.framgia.gotosalon.screen.detail;
 
+import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
 import android.support.v7.widget.Toolbar;
@@ -13,8 +14,10 @@ import com.framgia.gotosalon.R;
 import com.framgia.gotosalon.data.model.Salon;
 import com.framgia.gotosalon.screen.base.BaseActivity;
 
+import java.io.Serializable;
+
 public class DetailSalonActivity extends BaseActivity implements View.OnClickListener, DetailContract.View {
-    private static final String EXTRA_SALON = "EXTRA_SALON";
+    private static final String EXTRA_SALON_KEY = "EXTRA_SALON_KEY";
     private static final String URI_PHONE = "tel:";
     private static final String URI_EMAIL = "mailto:";
     private static final String URI_MAP = "geo:0,0?q=";
@@ -30,6 +33,12 @@ public class DetailSalonActivity extends BaseActivity implements View.OnClickLis
     private ImageView mImageView;
     private Salon mSalon;
     private DetailContract.Presenter mPresenter;
+
+    public static Intent getDetailSalonIntent(Context context, Salon salon) {
+        Intent intent = new Intent(context, DetailSalonActivity.class);
+        intent.putExtra(EXTRA_SALON_KEY, (Serializable) salon);
+        return intent;
+    }
 
     @Override
     protected int getLayoutResource() {
@@ -62,7 +71,7 @@ public class DetailSalonActivity extends BaseActivity implements View.OnClickLis
 
     @Override
     protected void initData() {
-        mSalon = (Salon) getIntent().getSerializableExtra(EXTRA_SALON);
+        mSalon = (Salon) getIntent().getSerializableExtra(EXTRA_SALON_KEY);
         mPresenter = new DetailPresenter();
         mPresenter.setView(this);
         mPresenter.checkSalonExist(mSalon);

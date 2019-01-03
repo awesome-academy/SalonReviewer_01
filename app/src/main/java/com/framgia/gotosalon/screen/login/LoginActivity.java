@@ -18,8 +18,7 @@ import com.framgia.gotosalon.screen.signup.SignUpActivity;
 import com.google.firebase.auth.FirebaseAuth;
 
 public class LoginActivity extends BaseActivity implements View.OnClickListener, LoginContract.View {
-    private static final String FILE_NAME_PREFERENCE = "FileName";
-    private static final String MSG_PLEASE_WAIT = "please wait few second";
+    private static final String PREF_FILE_NAME = "PREF_FILE_NAME";
     private LoginContract.Presenter mPresenter;
     private EditText mEditTextEmail;
     private EditText mEditTextPassword;
@@ -48,7 +47,7 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener,
         mPresenter = new LoginPresenter(AuthenicationRepository.getInstance(
                 AuthenicationRemoteDataSoucre.getInstance(FirebaseAuth.getInstance()),
                 AuthenicationLocalDataSoucre.getInstance(new SavingAccountPreference(
-                        getSharedPreferences(FILE_NAME_PREFERENCE, MODE_PRIVATE)))));
+                        getSharedPreferences(PREF_FILE_NAME, MODE_PRIVATE)))));
         mPresenter.setView(this);
         mAccount = new Account();
         mPresenter.restoreAccount(mAccount);
@@ -75,7 +74,8 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener,
 
     @Override
     public void onSignInSuccess() {
-        navigateScreen(LoginActivity.this, HomeActivity.class);
+        startActivity(HomeActivity.
+                getHomeIntent(LoginActivity.this, FirebaseAuth.getInstance().getUid()));
     }
 
     @Override

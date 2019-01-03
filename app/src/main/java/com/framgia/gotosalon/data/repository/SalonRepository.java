@@ -1,7 +1,6 @@
 package com.framgia.gotosalon.data.repository;
 
 import com.framgia.gotosalon.data.source.SalonDataSource;
-import com.framgia.gotosalon.data.source.remote.SalonRemoteDataSource;
 import com.google.firebase.database.ValueEventListener;
 
 public class SalonRepository implements SalonDataSource.Remote {

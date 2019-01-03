@@ -48,4 +48,6 @@
     <string name="title_get_location"><u>Get location</u></string>
     <string name="tittle_dial_phone"><u>Dial salon\'s phone number</u></string>
     <string name="tittle_write_email"><u>Write email to salon</u></string>
+    <string name="error_when_loading_salon">Error when loading salon</string>
+    <string name="error_suitable_app">Your phone do not has suitable app</string>
 </resources>

@@ -2,7 +2,9 @@ package com.framgia.gotosalon.screen.manager;
 
 import android.app.ProgressDialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
@@ -33,6 +35,7 @@ public class ManagerActivity extends BaseActivity implements View.OnClickListene
     private SalonManageAdapter mAdapter;
     private ManagerContract.Presenter mPresenter;
     private ProgressDialog mDialog;
+    private AlertDialog.Builder mBuilder;
 
     public static Intent getManagerIntent(Context context, String userId) {
         Intent intent = new Intent(context, ManagerActivity.class);
@@ -66,6 +69,10 @@ public class ManagerActivity extends BaseActivity implements View.OnClickListene
         mAdapter = new SalonManageAdapter(ManagerActivity.this, mSalons);
         recyclerView.setAdapter(mAdapter);
         mAdapter.setOnClickListener(this);
+
+        mBuilder = new AlertDialog.Builder(this);
+        mBuilder.setTitle(getResources().getString(R.string.title_alert_dialog));
+        mBuilder.setMessage(getResources().getString(R.string.msg_alert_dialog));
     }
 
     @Override
@@ -103,6 +110,7 @@ public class ManagerActivity extends BaseActivity implements View.OnClickListene
                         getDetailSalonIntent(ManagerActivity.this, mSalons.get(position)));
                 break;
             case R.id.image_delete:
+                deleteSalon(position);
                 break;
             case R.id.image_edit:
                 break;
@@ -125,5 +133,31 @@ public class ManagerActivity extends BaseActivity implements View.OnClickListene
     @Override
     public void onGetSalonProgress() {
         showProgressDialog(mDialog, R.string.msg_loading_salon);
+    }
+
+    @Override
+    public void onDeleteSuccess() {
+        Toast.makeText(this, getResources().getString(R.string.msg_deleted), Toast.LENGTH_SHORT).show();
+    }
+
+    private void deleteSalon(final int position) {
+        mBuilder.setPositiveButton(getResources().getString(R.string.title_alert_dialog_pos_button),
+                new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        StorageReference storageReferenceUrl = FirebaseStorage.getInstance().
+                                getReferenceFromUrl(mSalons.get(position).getImageUrl());
+                        mPresenter.deleteSalon(storageReferenceUrl, mSalons.get(position));
+                    }
+                });
+        mBuilder.setNegativeButton(getResources().getString(R.string.title_alert_dialog_neg_button),
+                new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        Toast.makeText(ManagerActivity.this, getResources().
+                                getString(R.string.msg_choose_no), Toast.LENGTH_SHORT).show();
+                    }
+                });
+        mBuilder.show();
     }
 }

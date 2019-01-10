@@ -1,12 +1,16 @@
 package com.framgia.gotosalon.screen.manager;
 
 import android.support.annotation.NonNull;
+import android.util.Log;
 
 import com.framgia.gotosalon.data.model.Salon;
 import com.framgia.gotosalon.data.repository.SalonRepository;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.ValueEventListener;
+import com.google.firebase.storage.StorageReference;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -47,6 +51,29 @@ public class ManagerPresenter implements ManagerContract.Presenter {
             @Override
             public void onCancelled(@NonNull DatabaseError databaseError) {
                 mView.onGetSalonFailed();
+            }
+        });
+    }
+
+    @Override
+    public void deleteSalon(StorageReference storageReferenceUrl, final Salon salon) {
+        mRepository.deleteImageSalon(storageReferenceUrl, new OnSuccessListener() {
+            @Override
+            public void onSuccess(Object o) {
+            }
+        }, new OnFailureListener() {
+            @Override
+            public void onFailure(@NonNull Exception e) {
+            }
+        });
+        mRepository.deleteDetailSalon(salon, new OnSuccessListener() {
+            @Override
+            public void onSuccess(Object o) {
+                mView.onDeleteSuccess();
+            }
+        }, new OnFailureListener() {
+            @Override
+            public void onFailure(@NonNull Exception e) {
             }
         });
     }

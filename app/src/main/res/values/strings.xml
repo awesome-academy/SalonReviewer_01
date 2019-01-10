@@ -51,4 +51,10 @@
     <string name="error_when_loading_salon">Error when loading salon</string>
     <string name="error_suitable_app">Your phone do not has suitable app</string>
     <string name="msg_loading_salon">Loading salon</string>
+    <string name="msg_choose_no">You choose No</string>
+    <string name="msg_deleted">Salon deleted</string>
+    <string name="title_alert_dialog_pos_button">Yes</string>
+    <string name="title_alert_dialog_neg_button">No</string>
+    <string name="title_alert_dialog">Are you sure</string>
+    <string name="msg_alert_dialog">This action will remove your salon on client network</string>
 </resources>

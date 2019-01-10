@@ -19,6 +19,7 @@ import com.framgia.gotosalon.screen.adapter.SalonManageAdapter;
 import com.framgia.gotosalon.screen.base.BaseActivity;
 import com.framgia.gotosalon.screen.detail.DetailSalonActivity;
 import com.framgia.gotosalon.screen.publish.PublishActivity;
+import com.framgia.gotosalon.screen.update.UpdateActivity;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.storage.FirebaseStorage;
@@ -113,6 +114,8 @@ public class ManagerActivity extends BaseActivity implements View.OnClickListene
                 deleteSalon(position);
                 break;
             case R.id.image_edit:
+                startActivity(UpdateActivity
+                        .getUpdateIntent(ManagerActivity.this, mSalons.get(position)));
                 break;
         }
     }

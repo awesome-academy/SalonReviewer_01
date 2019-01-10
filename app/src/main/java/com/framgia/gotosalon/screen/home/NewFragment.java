@@ -1,8 +1,6 @@
 package com.framgia.gotosalon.screen.home;
 
 import android.app.ProgressDialog;
-import android.content.Context;
-import android.content.Intent;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
@@ -16,13 +14,13 @@ import com.framgia.gotosalon.screen.base.BaseFragment;
 import com.framgia.gotosalon.screen.detail.DetailSalonActivity;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.storage.FirebaseStorage;
+import com.google.firebase.storage.StorageReference;
 
-import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
 public class NewFragment extends BaseFragment implements HomeContract.View {
-    private static final String EXTRA_SALON = "EXTRA_SALON";
     private SalonAdapter mAdapter;
     private ProgressDialog mDialog;
     private List<Salon> mSalons;
@@ -35,7 +33,7 @@ public class NewFragment extends BaseFragment implements HomeContract.View {
     @Override
     protected void initComponent(View view) {
         mSalons = new ArrayList<>();
-        RecyclerView recyclerView = view.findViewById(R.id.recycler_view);
+        RecyclerView recyclerView = view.findViewById(R.id.recycler_view_salons);
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
         mAdapter = new SalonAdapter(getContext(), mSalons);
         recyclerView.setAdapter(mAdapter);
@@ -43,17 +41,18 @@ public class NewFragment extends BaseFragment implements HomeContract.View {
         mAdapter.setOnClickListener(new SalonAdapter.OnItemClickListener() {
             @Override
             public void onItemClick(View itemView, int position) {
-                getSalonIntent(getContext(), mSalons.get(position));
+                startActivity(DetailSalonActivity.
+                        getDetailSalonIntent(getContext(), mSalons.get(position)));
             }
         });
     }
 
     @Override
     protected void initData() {
-        FirebaseDatabase firebaseDatabase = FirebaseDatabase.getInstance();
-        DatabaseReference reference = firebaseDatabase.getReference();
-        HomeContract.Presenter presenter = new HomePresenter(SalonRepository.
-                getInstance(SalonRemoteDataSource.getInstance(reference)));
+        DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference();
+        StorageReference storageReference = FirebaseStorage.getInstance().getReference();
+        HomeContract.Presenter presenter = new HomePresenter(SalonRepository.getInstance(
+                SalonRemoteDataSource.getInstance(databaseReference, storageReference)));
         presenter.setView(this);
         presenter.getNewSalons();
     }
@@ -72,12 +71,5 @@ public class NewFragment extends BaseFragment implements HomeContract.View {
     @Override
     public void onGetSalonInProgress() {
         showProgressDialog(mDialog);
-    }
-
-    public static Intent getSalonIntent(Context context, Salon salon) {
-        Intent intent = new Intent(context, DetailSalonActivity.class);
-        intent.putExtra(EXTRA_SALON, (Serializable) salon);
-        context.startActivity(intent);
-        return intent;
     }
 }

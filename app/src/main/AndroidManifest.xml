@@ -22,6 +22,7 @@
         <activity android:name=".screen.detail.DetailSalonActivity" />
         <activity android:name=".screen.publish.PublishActivity"/>
         <activity android:name=".screen.manager.ManagerActivity"/>
+        <activity android:name=".screen.update.UpdateActivity"/>
     </application>
 
 </manifest>

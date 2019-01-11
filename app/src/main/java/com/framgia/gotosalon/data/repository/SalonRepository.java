@@ -1,11 +1,14 @@
 package com.framgia.gotosalon.data.repository;
 
+import android.net.Uri;
+
 import com.framgia.gotosalon.data.model.Salon;
 import com.framgia.gotosalon.data.source.SalonDataSource;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.database.ValueEventListener;
 import com.google.firebase.storage.StorageReference;
+import com.google.firebase.storage.UploadTask;
 
 public class SalonRepository implements SalonDataSource.Remote {
     private SalonDataSource.Remote mDataSource;
@@ -39,5 +42,18 @@ public class SalonRepository implements SalonDataSource.Remote {
                                  OnSuccessListener successListener,
                                  OnFailureListener failureListener) {
         mDataSource.deleteImageSalon(storageReferenceUrl, successListener, failureListener);
+    }
+
+    @Override
+    public void storageSalonImage(Uri uri, String child,
+                                  OnSuccessListener<UploadTask.TaskSnapshot> onSuccessListener,
+                                  OnFailureListener failureListener) {
+        mDataSource.storageSalonImage(uri, child, onSuccessListener, failureListener);
+    }
+
+    @Override
+    public void publishSalons(Salon salon, OnSuccessListener onSuccessListener,
+                              OnFailureListener failureListener) {
+        mDataSource.publishSalons(salon, onSuccessListener, failureListener);
     }
 }

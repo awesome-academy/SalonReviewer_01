@@ -96,4 +96,8 @@
     <string name="error_salon_image">Please pick an other image</string>
     <string name="error_pick_image">Can not pick image</string>
     <string name="button_update">Update</string>
+    <string name="msg_update_image_sussces">Update image success</string>
+    <string name="msg_update_image_failed">Update image failed</string>
+    <string name="msg_update_salon_sussces">Update salon success</string>
+    <string name="msg_update_salon_failed">Update salon failed</string>
 </resources>

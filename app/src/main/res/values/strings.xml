@@ -95,4 +95,5 @@
     <string name="error_salon_time">Time open can not equal close</string>
     <string name="error_salon_image">Please pick an other image</string>
     <string name="error_pick_image">Can not pick image</string>
+    <string name="button_update">Update</string>
 </resources>

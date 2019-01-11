@@ -83,5 +83,16 @@
         <item>22:00</item>
         <item>23:00</item>
     </string-array>
-    <string name="error_spick_image">Can not pick image</string>
+    <string name="msg_please_wait_for_publishing">Please wait for publishing</string>
+    <string name="msg_please_wait_few_second">Please wait few second</string>
+    <string name="error_when_publishing">Error when publishing</string>
+    <string name="msg_publish_success">Publish success</string>
+    <string name="error_salon_name">Salon name invalid</string>
+    <string name="error_salon_address">Salon address invalid</string>
+    <string name="error_salon_phone">Salon phone invalid</string>
+    <string name="error_salon_email">Salon email invalid</string>
+    <string name="error_salon_email_form">Salon email form invalid</string>
+    <string name="error_salon_time">Time open can not equal close</string>
+    <string name="error_salon_image">Please pick an other image</string>
+    <string name="error_pick_image">Can not pick image</string>
 </resources>

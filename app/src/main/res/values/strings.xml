@@ -83,4 +83,5 @@
         <item>22:00</item>
         <item>23:00</item>
     </string-array>
+    <string name="error_spick_image">Can not pick image</string>
 </resources>

@@ -22,7 +22,6 @@
             app:layout_constraintVertical_bias="0.0"
             app:srcCompat="@drawable/image_choose" />
 
-
         <EditText
             android:id="@+id/edit_salon_name"
             style="@style/textFeildStyle"
